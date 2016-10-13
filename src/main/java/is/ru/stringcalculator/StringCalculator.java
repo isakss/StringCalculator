@@ -1,10 +1,9 @@
-public class Calculator
+package is.ru.stringcalculator;
+
+public class StringCalculator
 {
-	public static int add(string text)
+	public static int add(String text)
 	{
-		if(text.equals(" "))
-			return 0;
-		else
-			return 1;
+		return -1;
 	}
 }
