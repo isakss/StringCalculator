@@ -10,8 +10,7 @@ public class StringCalculator
 		}
 		else if(text.contains(","))
 		{
-			String [] numbers = text.split(",");
-			return toInt(numbers[0]) + toInt(numbers[1]);
+			return sum(splitText(text));
 		}
 		else
 		{
@@ -23,4 +22,21 @@ public class StringCalculator
 	{
 		return Integer.parseInt(number);
 	}
+
+	private static String[] splitText(String numbers)
+	{
+		return numbers.split(",");
+	}
+
+	private static int sum(String[] numbers)
+	{
+		int total = 0;
+
+		for(String number : numbers)
+		{
+			total += toInt(number);
+		}
+
+		return total;
+	}	
 }
