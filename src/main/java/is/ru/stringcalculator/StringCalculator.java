@@ -41,24 +41,34 @@ public class StringCalculator
 
 	private static int sum(String[] numbers) throws IllegalArgumentException
 	{
-		int total = 0;
+		throwNegativeException(numbers);
 
+		return calculateNumbers(numbers);
+	}
+
+	private static void throwNegativeException(String[] numbers) throws IllegalArgumentException
+	{
 		for(String number : numbers)
 		{
 			if(toInt(number) < 0)
 			{
 				throw new IllegalArgumentException("Negatives not allowed: " + toInt(number));
 			}
+		}
+	}	
+
+	private static int calculateNumbers(String[] numbers) throws IllegalArgumentException
+	{
+		int total = 0;
+
+		for(String number : numbers)
+		{
 			if(toInt(number) > 1000)
 			{
 				continue;
 			}
-			else
-			{
-				total += toInt(number);
-			}
+			total += toInt(number);
 		}
-
 		return total;
-	}	
+	}
 }
