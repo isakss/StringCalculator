@@ -16,6 +16,10 @@ public class StringCalculator
 		{
 			return sum(splitText(text));
 		}
+		else if(text.startsWith("//"))
+		{
+			return sum(splitText(text));
+		}
 		else
 		{
 			return 1;
@@ -29,14 +33,16 @@ public class StringCalculator
 
 	private static String[] splitText(String numbers)
 	{
-		if(numbers.contains("\n"))
+		String delimiter = ",|\n";
+
+		if(numbers.startsWith("//")) 
 		{
-			return numbers.split(",|\n");
+			String[] segments = numbers.split("\n", 2);
+			delimiter = segments[0].substring(2);
+			numbers = segments[1];
 		}
-		else
-		{
-			return numbers.split(",");
-		}
+
+		return numbers.split(delimiter);
 	}
 
 	private static int sum(String[] numbers) throws IllegalArgumentException

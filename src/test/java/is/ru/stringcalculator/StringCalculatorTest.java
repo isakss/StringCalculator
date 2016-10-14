@@ -48,4 +48,10 @@ public class StringCalculatorTest
 	{
 		assertEquals(2, StringCalculator.add("2,1001"));
 	} 
+
+	@Test
+	public void testNewDelimiter() throws IllegalArgumentException
+	{
+		assertEquals(3, StringCalculator.add("//;\n1;2"));
+	}
 }
