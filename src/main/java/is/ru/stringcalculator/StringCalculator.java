@@ -2,7 +2,7 @@ package is.ru.stringcalculator;
 
 public class StringCalculator
 {
-	public static int add(String text) throws Exception
+	public static int add(String text) throws IllegalArgumentException
 	{
 		if(text.equals(""))
 		{
@@ -39,7 +39,7 @@ public class StringCalculator
 		}
 	}
 
-	private static int sum(String[] numbers) throws Exception
+	private static int sum(String[] numbers) throws IllegalArgumentException
 	{
 		int total = 0;
 
@@ -48,6 +48,10 @@ public class StringCalculator
 			if(toInt(number) < 0)
 			{
 				throw new IllegalArgumentException("Negatives not allowed: " + toInt(number));
+			}
+			if(toInt(number) > 1000)
+			{
+				continue;
 			}
 			else
 			{
