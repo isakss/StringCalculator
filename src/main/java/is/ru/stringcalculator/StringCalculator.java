@@ -12,6 +12,10 @@ public class StringCalculator
 		{
 			return sum(splitText(text));
 		}
+		else if(text.contains("\n") && text.contains(","))
+		{
+			return sum(splitText(text));
+		}
 		else
 		{
 			return 1;
@@ -25,7 +29,14 @@ public class StringCalculator
 
 	private static String[] splitText(String numbers)
 	{
-		return numbers.split(",");
+		if(numbers.contains("\n"))
+		{
+			return numbers.split(",|\n");
+		}
+		else
+		{
+			return numbers.split(",");
+		}
 	}
 
 	private static int sum(String[] numbers)
